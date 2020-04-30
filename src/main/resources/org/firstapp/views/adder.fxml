@@ -26,17 +26,17 @@
             <Insets bottom="100.0" right="4.0" top="2.0" />
          </opaqueInsets>
       </TextArea>
-      <Button layoutX="472.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_4" prefHeight="48.0" prefWidth="48.0" text="4" />
+      <Button layoutX="472.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickNumber" userData="4" prefHeight="48.0" prefWidth="48.0" text="4" />
       <Button layoutX="300.0" layoutY="186.0" mnemonicParsing="false" onAction="#clearText" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: red; -fx-border-color: grey;" text="Vider" textFill="WHITE" />
       <Button layoutX="409.0" layoutY="187.0" mnemonicParsing="false" onAction="#add" text="Calculer" />
-      <Button layoutX="361.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_2" prefHeight="48.0" prefWidth="48.0" text="2" />
-      <Button layoutX="307.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_1" prefHeight="48.0" prefWidth="48.0" text="1" />
-      <Button layoutX="417.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_3" prefHeight="48.0" prefWidth="48.0" text="3" />
-      <Button layoutX="252.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_5" prefHeight="48.0" prefWidth="48.0" text="5" />
-      <Button layoutX="308.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_6" prefHeight="48.0" prefWidth="48.0" text="6" />
-      <Button layoutX="363.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_7" prefHeight="48.0" prefWidth="48.0" text="7" />
-      <Button layoutX="417.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_8" prefHeight="48.0" prefWidth="48.0" text="8" />
-      <Button layoutX="472.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_9" prefHeight="48.0" prefWidth="48.0" text="9" />
-      <Button layoutX="252.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_0" prefHeight="48.0" prefWidth="48.0" text="0" />
+      <Button layoutX="361.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickNumber" userData="2" prefHeight="48.0" prefWidth="48.0" text="2" />
+      <Button layoutX="307.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickNumber" userData="1" prefHeight="48.0" prefWidth="48.0" text="1" />
+      <Button layoutX="417.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickNumber" userData="3" prefHeight="48.0" prefWidth="48.0" text="3" />
+      <Button layoutX="252.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickNumber" userData="5" prefHeight="48.0" prefWidth="48.0" text="5" />
+      <Button layoutX="308.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickNumber" userData="6" prefHeight="48.0" prefWidth="48.0" text="6" />
+      <Button layoutX="363.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickNumber" userData="7" prefHeight="48.0" prefWidth="48.0" text="7" />
+      <Button layoutX="417.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickNumber" userData="8" prefHeight="48.0" prefWidth="48.0" text="8" />
+      <Button layoutX="472.0" layoutY="312.0" mnemonicParsing="false" onAction="#clickNumber" userData="9" prefHeight="48.0" prefWidth="48.0" text="9" />
+      <Button layoutX="252.0" layoutY="231.0" mnemonicParsing="false" onAction="#clickNumber" userData="0" prefHeight="48.0" prefWidth="48.0" text="0" />
    </children>
 </AnchorPane>
