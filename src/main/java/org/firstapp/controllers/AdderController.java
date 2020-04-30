@@ -27,14 +27,25 @@ public class AdderController implements Initializable {
         App.setRoot("views/menu");
     }
 
+    public void clearText(ActionEvent actionEvent) {
+        setResult(0);
+        setStart(false);
+        getTextArea_calc().clear();
+    }
+
+    public void add(ActionEvent actionEvent) {
+        getTextArea_calc().clear();
+        getTextArea_calc().appendText(String.valueOf(getResult()));
+    }
+
+
     private void clickNumber(long nbr) {
         setResult(getResult() + nbr);
-        if (isStart()) {
-            getTextArea_calc().appendText(" + " + nbr + " = " + getResult());
-        }
-        else {
-            getTextArea_calc().appendText(nbr + "");
 
+        if (isStart())
+            getTextArea_calc().appendText(" + " + nbr + " = " + getResult());
+        else {
+            getTextArea_calc().appendText(String.valueOf(nbr));
             setStart(true);
         }
     }
@@ -77,17 +88,6 @@ public class AdderController implements Initializable {
 
     public void click_9(ActionEvent actionEvent) {
         clickNumber(9);
-    }
-
-    public void clearText(ActionEvent actionEvent) {
-        setResult(0);
-        setStart(false);
-        getTextArea_calc().clear();
-    }
-
-    public void add(ActionEvent actionEvent) {
-        getTextArea_calc().clear();
-        getTextArea_calc().appendText(""+getResult());
     }
 
     // GETTER & SETTER
