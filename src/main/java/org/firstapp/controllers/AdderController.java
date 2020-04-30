@@ -1,8 +1,8 @@
 package org.firstapp.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import org.firstapp.App;
 
@@ -11,41 +11,31 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdderController implements Initializable {
-    public Button button_return;
-    public TextArea TextArea_calc;
-    public Button btn_4;
-    public Button btn_clear;
-    public Button btn_calc;
-    public Button btn_2;
-    public Button btn_1;
-    public Button btn_3;
-    public Button btn_5;
-    public Button btn_6;
-    public Button btn_7;
-    public Button btn_8;
-    public Button btn_9;
-    public Button btn_0;
-    public long result = 0;
-    public boolean start = false;
+
+    @FXML
+    private TextArea TextArea_calc;
+    private long result;
+    private boolean start;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        this.result = 0;
+        this.start = false;
     }
 
     public void button_return_click(ActionEvent actionEvent) throws IOException {
         App.setRoot("views/menu");
     }
 
-    public void clickNumber(long nbr) {
-        this.result += nbr;
-        if (this.start) {
-            this.TextArea_calc.appendText(" + " + nbr + " = " + result);
+    private void clickNumber(long nbr) {
+        setResult(getResult() + nbr);
+        if (isStart()) {
+            getTextArea_calc().appendText(" + " + nbr + " = " + getResult());
         }
         else {
-            this.TextArea_calc.appendText(nbr + "");
+            getTextArea_calc().appendText(nbr + "");
 
-            this.start = true;
+            setStart(true);
         }
     }
 
@@ -90,13 +80,34 @@ public class AdderController implements Initializable {
     }
 
     public void clearText(ActionEvent actionEvent) {
-        this.result = 0;
-        this.start = false;
-        this.TextArea_calc.clear();
+        setResult(0);
+        setStart(false);
+        getTextArea_calc().clear();
     }
 
     public void add(ActionEvent actionEvent) {
-        this.TextArea_calc.clear();
-        this.TextArea_calc.appendText(""+this.result);
+        getTextArea_calc().clear();
+        getTextArea_calc().appendText(""+getResult());
+    }
+
+    // GETTER & SETTER
+    public long getResult() {
+        return result;
+    }
+
+    public void setResult(long result) {
+        this.result = result;
+    }
+
+    public boolean isStart() {
+        return start;
+    }
+
+    public void setStart(boolean start) {
+        this.start = start;
+    }
+
+    public TextArea getTextArea_calc() {
+        return TextArea_calc;
     }
 }

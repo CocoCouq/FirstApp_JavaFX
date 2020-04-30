@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.firstapp.controllers.AdderController">
    <children>
-      <Button fx:id="button_return" layoutX="52.0" layoutY="31.0" mnemonicParsing="false" onAction="#button_return_click" prefHeight="27.0" prefWidth="131.0" text="Menu Principal" />
+      <Button layoutX="52.0" layoutY="31.0" mnemonicParsing="false" onAction="#button_return_click" prefHeight="27.0" prefWidth="131.0" text="Menu Principal" />
       <Rectangle height="383.0" layoutX="235.0" layoutY="9.0" stroke="#575353" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="3.0" width="299.0">
          <fill>
             <LinearGradient endX="0.8369304556354915" endY="0.8177458033573142" startX="0.8321342925659473" startY="0.302158273381295">
@@ -26,17 +26,17 @@
             <Insets bottom="100.0" right="4.0" top="2.0" />
          </opaqueInsets>
       </TextArea>
-      <Button fx:id="btn_4" layoutX="472.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_4" prefHeight="48.0" prefWidth="48.0" text="4" />
-      <Button fx:id="btn_clear" layoutX="300.0" layoutY="186.0" mnemonicParsing="false" onAction="#clearText" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: red; -fx-border-color: grey;" text="Vider" textFill="WHITE" />
-      <Button fx:id="btn_calc" layoutX="409.0" layoutY="187.0" mnemonicParsing="false" onAction="#add" text="Calculer" />
-      <Button fx:id="btn_2" layoutX="361.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_2" prefHeight="48.0" prefWidth="48.0" text="2" />
-      <Button fx:id="btn_1" layoutX="307.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_1" prefHeight="48.0" prefWidth="48.0" text="1" />
-      <Button fx:id="btn_3" layoutX="417.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_3" prefHeight="48.0" prefWidth="48.0" text="3" />
-      <Button fx:id="btn_5" layoutX="252.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_5" prefHeight="48.0" prefWidth="48.0" text="5" />
-      <Button fx:id="btn_6" layoutX="308.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_6" prefHeight="48.0" prefWidth="48.0" text="6" />
-      <Button fx:id="btn_7" layoutX="363.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_7" prefHeight="48.0" prefWidth="48.0" text="7" />
-      <Button fx:id="btn_8" layoutX="417.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_8" prefHeight="48.0" prefWidth="48.0" text="8" />
-      <Button fx:id="btn_9" layoutX="472.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_9" prefHeight="48.0" prefWidth="48.0" text="9" />
-      <Button fx:id="btn_0" layoutX="252.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_0" prefHeight="48.0" prefWidth="48.0" text="0" />
+      <Button layoutX="472.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_4" prefHeight="48.0" prefWidth="48.0" text="4" />
+      <Button layoutX="300.0" layoutY="186.0" mnemonicParsing="false" onAction="#clearText" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: red; -fx-border-color: grey;" text="Vider" textFill="WHITE" />
+      <Button layoutX="409.0" layoutY="187.0" mnemonicParsing="false" onAction="#add" text="Calculer" />
+      <Button layoutX="361.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_2" prefHeight="48.0" prefWidth="48.0" text="2" />
+      <Button layoutX="307.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_1" prefHeight="48.0" prefWidth="48.0" text="1" />
+      <Button layoutX="417.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_3" prefHeight="48.0" prefWidth="48.0" text="3" />
+      <Button layoutX="252.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_5" prefHeight="48.0" prefWidth="48.0" text="5" />
+      <Button layoutX="308.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_6" prefHeight="48.0" prefWidth="48.0" text="6" />
+      <Button layoutX="363.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_7" prefHeight="48.0" prefWidth="48.0" text="7" />
+      <Button layoutX="417.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_8" prefHeight="48.0" prefWidth="48.0" text="8" />
+      <Button layoutX="472.0" layoutY="312.0" mnemonicParsing="false" onAction="#click_9" prefHeight="48.0" prefWidth="48.0" text="9" />
+      <Button layoutX="252.0" layoutY="231.0" mnemonicParsing="false" onAction="#click_0" prefHeight="48.0" prefWidth="48.0" text="0" />
    </children>
 </AnchorPane>
