@@ -33,15 +33,15 @@ public class AdderController implements Initializable {
 
     // Reset text
     public void clearText() {
-        setResult(0);
-        setStart(false);
-        getTextArea_calc().clear();
+        this.result = 0;
+        this.start = false;
+        this.TextArea_calc.clear();
     }
 
     // Button calc
     public void add() {
-        getTextArea_calc().clear();
-        getTextArea_calc().appendText(String.valueOf(getResult()));
+        this.TextArea_calc.clear();
+        this.TextArea_calc.appendText(String.valueOf(this.result));
     }
 
     // Click on numbers
@@ -51,36 +51,13 @@ public class AdderController implements Initializable {
         String value = (String) node.getUserData();
         int nbr = Integer.parseInt(value);
 
-        setResult(getResult() + nbr);
+        this.result = this.result + nbr;
 
-        if (isStart())
-            getTextArea_calc().appendText(" + " + value + " = " + getResult());
+        if (this.start)
+            this.TextArea_calc.appendText(" + " + value + " = " + this.result);
         else {
-            getTextArea_calc().appendText(value);
-            setStart(true);
+            this.TextArea_calc.appendText(value);
+            this.start = true;
         }
-
     }
-
-    // GETTER & SETTER
-    public long getResult() {
-        return result;
-    }
-
-    public void setResult(long result) {
-        this.result = result;
-    }
-
-    public boolean isStart() {
-        return start;
-    }
-
-    public void setStart(boolean start) {
-        this.start = start;
-    }
-
-    public TextArea getTextArea_calc() {
-        return TextArea_calc;
-    }
-
 }

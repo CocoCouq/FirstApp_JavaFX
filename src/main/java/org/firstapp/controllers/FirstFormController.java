@@ -24,29 +24,11 @@ public class FirstFormController implements Initializable {
     }
 
     public void button1_click(ActionEvent actionEvent) {
-        String str = getTextField1().getText();
-        getLabel1().setText(str);
+        String str = this.textField1.getText();
+        this.label1.setText(str);
     }
 
     public void button2_click(ActionEvent actionEvent) throws IOException {
         App.setRoot("views/menu");
-    }
-
-    // GETTERS & SETTERS
-
-    public Label getLabel1() {
-        return label1;
-    }
-
-    public void setLabel1(Label label1) {
-        this.label1 = label1;
-    }
-
-    public TextField getTextField1() {
-        return textField1;
-    }
-
-    public void setTextField1(TextField textField1) {
-        this.textField1 = textField1;
     }
 }
