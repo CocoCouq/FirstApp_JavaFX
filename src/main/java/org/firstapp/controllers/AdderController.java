@@ -18,12 +18,14 @@ public class AdderController implements Initializable {
     private TextArea TextArea_calc;
     private long result;
     private boolean start;
+    private boolean isResult;
 
     // Initialize controller
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.result = 0;
         this.start = false;
+        this.isResult = false;
     }
 
     // Return button
@@ -39,9 +41,10 @@ public class AdderController implements Initializable {
     }
 
     // Button calc
-    public void add() {
+    public void cleanText() {
         this.TextArea_calc.clear();
         this.TextArea_calc.appendText(String.valueOf(this.result));
+        this.isResult = false;
     }
 
     // Click on numbers
@@ -51,13 +54,24 @@ public class AdderController implements Initializable {
         String value = (String) node.getUserData();
         int nbr = Integer.parseInt(value);
 
-        this.result = this.result + nbr;
-
-        if (this.start)
-            this.TextArea_calc.appendText(" + " + value + " = " + this.result);
+        if (this.start) {
+            if (!isResult)
+                this.TextArea_calc.appendText(" + " + value);
+            else {
+                this.TextArea_calc.appendText(" | " + this.result + " + " + value);
+                this.isResult = false;
+            }
+        }
         else {
             this.TextArea_calc.appendText(value);
             this.start = true;
         }
+
+        this.result = this.result + nbr;
+    }
+
+    public void add(ActionEvent actionEvent) {
+        this.TextArea_calc.appendText(" = " + this.result);
+        this.isResult = true;
     }
 }
