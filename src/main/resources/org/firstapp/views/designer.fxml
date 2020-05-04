@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.firstapp.controllers.DesignerController">
+   <children>
+      <Button layoutX="71.0" layoutY="25.0" mnemonicParsing="false" onAction="#return_menu" text="Menu Principal" />
+      <Accordion layoutX="101.0" layoutY="146.0" />
+      <TitledPane fx:id="choicesArea" animated="false" collapsible="false" disable="true" layoutX="384.0" layoutY="25.0" text="Choix">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="176.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="checkBack" layoutX="19.0" layoutY="36.0" mnemonicParsing="false" onAction="#checkBackground" prefHeight="18.0" prefWidth="163.0" text="Couleur fond" />
+                  <CheckBox fx:id="checkTextColor" layoutX="19.0" layoutY="81.0" mnemonicParsing="false" onAction="#checkText" prefHeight="18.0" prefWidth="163.0" text="Couleur texte" />
+                  <CheckBox fx:id="checkCase" layoutX="19.0" layoutY="129.0" mnemonicParsing="false" onAction="#checkCaseDisable" prefHeight="18.0" prefWidth="163.0" text="Casse" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TextField fx:id="inputText" layoutX="14.0" layoutY="201.0" onKeyReleased="#disableChoices" prefHeight="27.0" prefWidth="343.0" promptText="Entrez votre texte ici" />
+      <TitledPane fx:id="backgroundArea" animated="false" collapsible="false" disable="true" layoutX="14.0" layoutY="63.0" prefHeight="129.0" prefWidth="99.0" text="Fond">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Rouge" userData="red">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="background" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="14.0" layoutY="69.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Vert" toggleGroup="$background" userData="green" />
+                  <RadioButton layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Bleu" toggleGroup="$background" userData="blue" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane fx:id="caseArea" animated="false" collapsible="false" disable="true" layoutX="258.0" layoutY="63.0" prefHeight="129.0" prefWidth="99.0" text="Casse">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Majuscule" userData="up">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="caseText" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="7.0" layoutY="42.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Minuscule" toggleGroup="$caseText" userData="low" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="textArea" animated="false" collapsible="false" disable="true" layoutX="136.0" layoutY="63.0" prefHeight="129.0" prefWidth="99.0" text="Texte">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Rouge" userData="red">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="text" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="14.0" layoutY="42.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Bleu" toggleGroup="$text" userData="blue" />
+                  <RadioButton layoutX="14.0" layoutY="69.0" mnemonicParsing="false" onAction="#setStyleCheckbox" text="Vert" toggleGroup="$text" userData="green" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <Rectangle fill="WHITE" height="129.0" layoutX="14.0" layoutY="246.0" stroke="#c6c3c3" strokeType="OUTSIDE" width="572.0" />
+      <Label fx:id="labelText" alignment="CENTER" layoutX="41.0" layoutY="285.0" prefHeight="37.0" prefWidth="509.0" />
+   </children>
+</AnchorPane>

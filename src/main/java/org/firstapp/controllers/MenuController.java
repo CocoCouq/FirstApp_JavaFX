@@ -21,4 +21,8 @@ public class MenuController implements Initializable {
     public void button_adder_click(ActionEvent actionEvent) throws IOException {
         App.setRoot("views/adder");
     }
+
+    public void button_designer_click(ActionEvent actionEvent) throws IOException {
+        App.setRoot("views/designer");
+    }
 }
