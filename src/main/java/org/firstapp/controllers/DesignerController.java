@@ -1,44 +1,34 @@
 package org.firstapp.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import org.firstapp.App;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Exercise 2 : CSS Form
+ * @author Corentin Couq
+ */
 public class DesignerController implements Initializable {
     // Variables FXML
     @FXML
-    private ToggleGroup caseText;
+    private ToggleGroup caseText, text, background;
     @FXML
-    private TitledPane caseArea;
+    private TitledPane caseArea, textArea, backgroundArea, choicesArea;
     @FXML
-    private CheckBox checkCase;
-    @FXML
-    private ToggleGroup text;
-    @FXML
-    private CheckBox checkTextColor;
-    @FXML
-    private TitledPane textArea;
-    @FXML
-    private ToggleGroup background;
+    private CheckBox checkCase, checkTextColor, checkBack;
     @FXML
     private Label labelText;
     @FXML
-    private CheckBox checkBack;
-    @FXML
-    private TitledPane backgroundArea;
-    @FXML
-    private TitledPane choicesArea;
-    @FXML
     private TextField inputText;
 
-    // Initialization
+    /**
+     * Controller initialization : add event listener on to input value to label text
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.inputText.textProperty().addListener( evt -> {
@@ -51,13 +41,21 @@ public class DesignerController implements Initializable {
         App.setRoot("views/menu");
     }
 
-    // Toggle visible areas
-    public void disableChoices(KeyEvent keyEvent) {
+    /**
+     * Enable choices if input is not empty on key press
+     */
+    public void disableChoices() {
         String string = this.inputText.getText();
         this.choicesArea.disableProperty().set(string.length() <= 0);
     }
 
-    // Checkbox reset where uncheck
+    /**
+     * Function to reset value where checkbox unchecked
+     * @param pane : Titled Pane to disable
+     * @param checkbox : Checkbox clicked
+     * @param toggleGroup : Radios group to reset
+     * @param defaultStyle : Restore default css value
+     */
     public void resetCheckbox(TitledPane pane, CheckBox checkbox, ToggleGroup toggleGroup, String defaultStyle) {
         pane.disableProperty().set(!checkbox.isSelected());
         this.labelText.setStyle(this.labelText.getStyle() + ";" + defaultStyle);
@@ -66,17 +64,24 @@ public class DesignerController implements Initializable {
             toggleGroup.getSelectedToggle().setSelected(false);
     }
 
-    // Background & Text Checkbox
-    public void checkBackground(ActionEvent actionEvent) {
+    /**
+     * Click on background checkbox
+     */
+    public void checkBackground() {
         resetCheckbox(this.backgroundArea, this.checkBack, this.background, "-fx-background-color: white");
     }
 
-    public void checkText(ActionEvent actionEvent) {
+    /**
+     * Click on text checkbox
+     */
+    public void checkText() {
         resetCheckbox(this.textArea, this.checkTextColor, this.text, "-fx-text-fill: black");
     }
 
-    // Case checkbox
-    public void checkCaseDisable(ActionEvent actionEvent) {
+    /**
+     * Click on case checkbox
+     */
+    public void checkCaseDisable() {
        this.caseArea.disableProperty().set(!this.checkCase.isSelected());
         this.labelText.setText(this.inputText.getText());
 
@@ -84,7 +89,9 @@ public class DesignerController implements Initializable {
             this.caseText.getSelectedToggle().setSelected(false);
     }
 
-    // Check what case user want
+    /**
+     * Function to define case result
+     */
     public void getStringResult() {
         if (this.caseText.getSelectedToggle() != null) {
 
@@ -100,7 +107,11 @@ public class DesignerController implements Initializable {
             this.labelText.setText(this.inputText.getText());
     }
 
-    // Change color by style property
+    /**
+     * Set style to String (Background and text color)
+     * @param toggleGroup : Radios group enable
+     * @param styleProperty : CSS property to set
+     */
     public void setStyleColor(ToggleGroup toggleGroup, String styleProperty) {
         if (toggleGroup.getSelectedToggle() != null) {
             String color = (String) toggleGroup.getSelectedToggle().getUserData();
@@ -108,8 +119,10 @@ public class DesignerController implements Initializable {
         }
     }
 
-    // Set style and recover case for string
-    public void setStyleCheckbox(ActionEvent actionEvent) {
+    /**
+     * Set style and recover case
+     */
+    public void setStyleCheckbox() {
         setStyleColor(this.background, "-fx-background-color");
         setStyleColor(this.text, "-fx-text-fill");
         // Case

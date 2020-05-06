@@ -13,36 +13,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Exercise 3 : Color Mixer
+ * @author Corentin Couq
+ */
 public class ColorMixerController implements Initializable {
     // FXML variables
     @FXML
-    private Label labelHex;
+    private Label labelHex, labelRed, labelGreen, labelBlue, labelTrans;
     @FXML
-    private Label labelRed;
+    private Rectangle transSqrt, mixerBox, colorSqrt3, colorSqrt2, colorSqrt1;
     @FXML
-    private Label labelGreen;
-    @FXML
-    private Label labelBlue;
-    @FXML
-    private Label labelTrans;
-    @FXML
-    private Rectangle transSqrt;
-    @FXML
-    private Slider sliderTrans;
-    @FXML
-    private Rectangle mixerBox;
-    @FXML
-    private Rectangle colorSqrt3;
-    @FXML
-    private Rectangle colorSqrt2;
-    @FXML
-    private Rectangle colorSqrt1;
-    @FXML
-    private Slider slider1;
-    @FXML
-    private Slider slider2;
-    @FXML
-    private Slider slider3;
+    private Slider sliderTrans, slider1, slider2, slider3;
 
     // Class variables
     private int valueS1 = 0;
@@ -50,7 +32,9 @@ public class ColorMixerController implements Initializable {
     private int valueS3 = 0;
     private float transparency = 1;
 
-    // Event on views initialization
+    /**
+     * Controller initialization : add event listener on the 4 labels (Red, Green, Blue, Transparency)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // RED
@@ -85,25 +69,35 @@ public class ColorMixerController implements Initializable {
     }
 
     // CLASS FUNCTIONS
-    // Define slider result for 255
+    /**
+     * Function to define slider result for 255
+     * @param number : number of slider
+     * @return Value / 255
+     */
     public int defineRGB(Number number) {
         return (number.intValue() * 255) / 100;
     }
 
-    // Define the string to hex value of color
+    /**
+     * Function to define hex value for color
+     * @return Hex string color value
+     */
     public String hexValue() {
         return "#" + Integer.toHexString(valueS1) + Integer.toHexString(valueS2) + Integer.toHexString(valueS3);
     }
 
-    // Display color after event on a slider & Display result for RGB
+    /**
+     * Function tu display colors and value result
+     * @param label : label to set value
+     * @param value : color value
+     */
     public void displayColor(Label label, Number value) {
         this.mixerBox.setFill(Color.rgb(this.valueS1, this.valueS2, this.valueS3, this.transparency));
         label.setText(String.valueOf(value));
         this.labelHex.setText(hexValue());
     }
 
-    // Go back to menu
-    public void button_return(ActionEvent actionEvent) throws IOException {
+    public void button_return() throws IOException {
         App.setRoot("views/menu");
     }
 

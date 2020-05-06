@@ -9,11 +9,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * <b>First application in Java FX to show my first exercises</b>
+ *
+ * <br>This class contain first view and function to change view
+ * @version 1.1.0
+ * @author Corentin Couq
+ * @see org.firstapp.controllers.MenuController
  */
 public class App extends Application {
     private static Scene scene;
 
+    /**
+     * On start show menu
+     * @see org.firstapp.controllers.MenuController
+     * @param stage : Stage for the primary stage
+     * @throws IOException : Exception
+     */
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("views/menu"));
@@ -22,15 +33,30 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Set root use loadFXML function to add views on the scene
+     * @param fxml : String to fxml files
+     * @throws IOException : Exception
+     */
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    /**
+     * Function to define and load fxml files
+     * @param fxml : String to fxml file
+     * @return FXMLLoader file
+     * @throws IOException : Exception
+     */
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
+    /**
+     * Main to launch app
+     * @param args : Main arguments
+     */
     public static void main(String[] args) {
         launch();
     }

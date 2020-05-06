@@ -1,6 +1,5 @@
 package org.firstapp.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import org.firstapp.App;
 
@@ -8,29 +7,62 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Home page controller : access to all pages
+ *
+ * @see FirstFormController
+ * @see AdderController
+ * @see DesignerController
+ * @see ColorMixerController
+ * @see TableController
+ */
 public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
-    public void button_form1_click(ActionEvent actionEvent) throws IOException {
+    /**
+     * First Form
+     * @see FirstFormController
+     * @throws IOException : Exception
+     */
+    public void button_form1_click() throws IOException {
         App.setRoot("views/firstform");
     }
 
-    public void button_adder_click(ActionEvent actionEvent) throws IOException {
+    /**
+     * Adder
+     * @see AdderController
+     * @throws IOException : Exception
+     */
+    public void button_adder_click() throws IOException {
         App.setRoot("views/adder");
     }
 
-    public void button_designer_click(ActionEvent actionEvent) throws IOException {
+    /**
+     * String Designer
+     * @see DesignerController
+     * @throws IOException : Exception
+     */
+    public void button_designer_click() throws IOException {
         App.setRoot("views/designer");
     }
 
-    public void button_mixer_click(ActionEvent actionEvent) throws IOException {
+    /**
+     * Color Mixer
+     * @see ColorMixerController
+     * @throws IOException : Exception
+     */
+    public void button_mixer_click() throws IOException {
         App.setRoot("views/colormixer");
     }
 
-    public void button_table_click(ActionEvent actionEvent) throws IOException {
+    /**
+     * Table of clients
+     * @see TableController
+     * @throws IOException : Exception
+     */
+    public void button_table_click() throws IOException {
         App.setRoot("views/table");
     }
 }

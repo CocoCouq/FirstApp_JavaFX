@@ -2,7 +2,6 @@ package org.firstapp.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -16,26 +15,25 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Exercise 4 : Table of clients
+ * @author Corentin Couq
+ */
 public class TableController implements Initializable {
-    // Textfield variables
+    // Variables
     @FXML
-    private TextField txt_name;
-    @FXML
-    private TextField txt_first_name;
-    @FXML
-    private TextField text_city;
-    // Table variables
+    private TextField txt_name, txt_first_name, text_city;
     @FXML
     private TableView<ClientTable> clients_list;
     @FXML
-    private TableColumn<ClientTable, String> col_name;
-    @FXML
-    private TableColumn<ClientTable, String> col_first_name;
-    @FXML
-    private TableColumn<ClientTable, String> col_city;
+    private TableColumn<ClientTable, String> col_name, col_first_name, col_city;
     // Observable list of new ClientTable
     public ObservableList<ClientTable> list = FXCollections.observableArrayList();
 
+    /**
+     * Controller initialization : Insert 4 clients on table
+     * @see ClientTable
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // List insertion on initialization
@@ -57,12 +55,14 @@ public class TableController implements Initializable {
     }
 
     // Back to menu
-    public void button_return(ActionEvent actionEvent) throws IOException {
+    public void button_return() throws IOException {
         App.setRoot("views/menu");
     }
 
-    // Save new user
-    public void save(ActionEvent actionEvent) {
+    /**
+     * Function to save client on click
+     */
+    public void save() {
         ClientTable newClient = new ClientTable();
         // Set new values
         try {
@@ -78,15 +78,21 @@ public class TableController implements Initializable {
         }
     }
 
-    // Clear all inputs
-    public void reset(ActionEvent actionEvent) {
+    /**
+     * Function to delete Input text value
+     */
+    public void reset() {
         this.text_city.clear();
         this.txt_first_name.clear();
         this.txt_name.clear();
     }
 
     // Delete one of list
-    public void delete(ActionEvent actionEvent) {
+
+    /**
+     * Delete one client selected
+     */
+    public void delete() {
         list.remove(this.clients_list.getSelectionModel().getFocusedIndex());
     }
 }

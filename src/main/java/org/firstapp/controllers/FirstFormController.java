@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * First Form created : The real first exercise Java FX
+ */
 public class FirstFormController implements Initializable {
     @FXML
     private Label label1;
@@ -23,12 +26,15 @@ public class FirstFormController implements Initializable {
 
     }
 
-    public void button1_click(ActionEvent actionEvent) {
+    /**
+     * To set input text value on label value
+     */
+    public void button1_click() {
         String str = this.textField1.getText();
         this.label1.setText(str);
     }
 
-    public void button2_click(ActionEvent actionEvent) throws IOException {
+    public void button2_click() throws IOException {
         App.setRoot("views/menu");
     }
 }
