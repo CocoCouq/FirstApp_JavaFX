@@ -3,5 +3,6 @@ module org.firstapp {
     requires javafx.fxml;
 
     opens org.firstapp.controllers to javafx.fxml;
+    opens org.firstapp.POJO to javafx.base;
     exports org.firstapp;
 }

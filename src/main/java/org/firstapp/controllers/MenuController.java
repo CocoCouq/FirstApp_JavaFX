@@ -29,4 +29,8 @@ public class MenuController implements Initializable {
     public void button_mixer_click(ActionEvent actionEvent) throws IOException {
         App.setRoot("views/colormixer");
     }
+
+    public void button_table_click(ActionEvent actionEvent) throws IOException {
+        App.setRoot("views/table");
+    }
 }
