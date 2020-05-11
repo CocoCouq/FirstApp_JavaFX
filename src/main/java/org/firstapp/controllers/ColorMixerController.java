@@ -101,4 +101,84 @@ public class ColorMixerController implements Initializable {
         App.setRoot("views/menu");
     }
 
+    // GETTER AND SETTER (for testing)
+    public int getValueS1() {
+        return valueS1;
+    }
+
+    public void setValueS1(int valueS1) {
+        this.valueS1 = valueS1;
+    }
+
+    public int getValueS2() {
+        return valueS2;
+    }
+
+    public void setValueS2(int valueS2) {
+        this.valueS2 = valueS2;
+    }
+
+    public int getValueS3() {
+        return valueS3;
+    }
+
+    public void setValueS3(int valueS3) {
+        this.valueS3 = valueS3;
+    }
+
+    public float getTransparency() {
+        return transparency;
+    }
+
+    public void setTransparency(float transparency) {
+        this.transparency = transparency;
+    }
+
+    public Label getLabelHex() {
+        return labelHex;
+    }
+
+    public void setLabelHex(Label labelHex) {
+        this.labelHex = labelHex;
+    }
+
+    public Label getLabelRed() {
+        return labelRed;
+    }
+
+    public void setLabelRed(Label labelRed) {
+        this.labelRed = labelRed;
+    }
+
+    public Label getLabelGreen() {
+        return labelGreen;
+    }
+
+    public void setLabelGreen(Label labelGreen) {
+        this.labelGreen = labelGreen;
+    }
+
+    public Label getLabelBlue() {
+        return labelBlue;
+    }
+
+    public void setLabelBlue(Label labelBlue) {
+        this.labelBlue = labelBlue;
+    }
+
+    public Label getLabelTrans() {
+        return labelTrans;
+    }
+
+    public void setLabelTrans(Label labelTrans) {
+        this.labelTrans = labelTrans;
+    }
+
+    public Rectangle getMixerBox() {
+        return mixerBox;
+    }
+
+    public void setMixerBox(Rectangle mixerBox) {
+        this.mixerBox = mixerBox;
+    }
 }
