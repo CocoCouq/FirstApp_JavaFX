@@ -1,5 +1,6 @@
 package org.firstapp.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import org.firstapp.App;
 
@@ -64,5 +65,14 @@ public class MenuController implements Initializable {
      */
     public void button_table_click() throws IOException {
         App.setRoot("views/table");
+    }
+
+    /**
+     * Exercises on database
+     * @see org.firstapp.controllers.JDBC.MenuController
+     * @throws IOException : Exception
+     */
+    public void btn_JDBC() throws IOException {
+        App.setRoot("views/JDBC/menu_jdbc");
     }
 }
