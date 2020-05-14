@@ -22,9 +22,9 @@
          </fill>
       </Rectangle>
       <Button layoutX="26.0" layoutY="27.0" mnemonicParsing="false" onAction="#btn_return" prefWidth="55.0" text="Retour" />
-      <Button layoutX="59.0" layoutY="227.0" mnemonicParsing="false" onAction="#btn1" text="Exercice 1" />
-      <Button layoutX="263.0" layoutY="227.0" mnemonicParsing="false" onAction="#btn2" text="Exercice 2" />
-      <Button layoutX="464.0" layoutY="227.0" mnemonicParsing="false" onAction="#btn3" text="Exercice 3" />
+      <Button layoutX="59.0" layoutY="214.0" mnemonicParsing="false" onAction="#btn1" text="Exercice 1" />
+      <Button layoutX="263.0" layoutY="214.0" mnemonicParsing="false" onAction="#btn2" text="Exercice 2" />
+      <Button layoutX="464.0" layoutY="214.0" mnemonicParsing="false" onAction="#btn3" text="Exercice 3" />
       <Text layoutX="146.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exercices JDBC" wrappingWidth="401.46502685546875">
          <font>
             <Font name="Avenir Next Bold" size="45.0" />
@@ -54,6 +54,28 @@
       <Text layoutX="230.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage de la liste des commandes pour un fournisseur" textAlignment="CENTER" wrappingWidth="139.02734375">
          <font>
             <Font size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="259.0" layoutY="326.0" mnemonicParsing="false" onAction="#btnDAO" text="DAO CRUD" />
+      <Text layoutX="239.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réalisation d'un CRUD" />
+      <Text layoutX="74.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Papyrus">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="278.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Papyrus">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="480.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Papyrus">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="286.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel">
+         <font>
+            <Font name="Impact" size="13.0" />
          </font>
       </Text>
    </children>

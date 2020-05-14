@@ -30,7 +30,6 @@ public class Connection {
         {
             // Connection
             java.sql.Connection con = DriverManager.getConnection(this.url, this.user, this.pwd);
-            System.out.println("DB connected");
             return con;
         }
         catch(Exception e)
@@ -39,5 +38,4 @@ public class Connection {
             return null;
         }
     }
-
 }

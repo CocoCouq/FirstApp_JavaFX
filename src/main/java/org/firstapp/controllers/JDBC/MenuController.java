@@ -56,4 +56,13 @@ public class MenuController implements Initializable {
     public void btn3() throws IOException {
         App.setRoot("views/JDBC/new_fou");
     }
+
+    /**
+     * CRUD EXERCISE
+     * @see org.firstapp.controllers.CRUD.HotelController
+     * @throws IOException : Exception
+     */
+    public void btnDAO() throws IOException {
+        App.setRoot("views/CRUD/hotel");
+    }
 }
