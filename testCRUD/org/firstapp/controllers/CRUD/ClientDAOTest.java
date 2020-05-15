@@ -89,4 +89,47 @@ class ClientDAOTest {
         assertEquals("Address", clientHotel.getAddress());
     }
 
+    @Test
+    public void testUpdate() throws SQLException {
+        // Recover the index on table Client
+        List<ClientHotel> list = clientDAO.list();
+        int lastIndex = list.get(list.size() - 1).getId();
+
+        // Find the last client insert
+        ClientHotel client = clientDAO.find(lastIndex);
+
+        // Update values for new client
+        client.setName("Nom");
+        client.setFirstName("Prenom");
+        client.setAddress("Adresse");
+        client.setCity("Ville");
+        clientDAO.update(client);
+
+        // Recover client after update
+        client = clientDAO.find(lastIndex);
+
+        // Testing result
+        assertEquals("Nom", client.getName());
+        assertEquals("Prenom", client.getFirstName());
+        assertEquals("Adresse", client.getAddress());
+        assertEquals("Ville", client.getCity());
+        assertEquals(lastIndex, client.getId());
+    }
+
+    @Test
+    public void testDelete() throws SQLException {
+        // Recover the index on table Client
+        List<ClientHotel> list = clientDAO.list();
+        int firstLength = list.size() - 1;
+
+        int lastIndex = list.get(firstLength).getId();
+
+        ClientHotel client = clientDAO.find(lastIndex);
+
+        clientDAO.delete(client);
+
+        list = clientDAO.list();
+
+        assertEquals(firstLength, list.size());
+    }
 }
