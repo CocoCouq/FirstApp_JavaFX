@@ -18,7 +18,14 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Hotel CRUD View Controller
+ *
+ * @see ClientDAO
+ * @see ClientHotel
+ */
 public class HotelController implements Initializable {
+    // FXML Variables
     @FXML
     private TitledPane upAccordion;
     @FXML
@@ -27,20 +34,20 @@ public class HotelController implements Initializable {
     private TextField addName, addAddress, addFirstName, addCity, upName, upFirstName, upAddress, upCity, upId;
     @FXML
     private TableView<ClientHotel> tableClients;
-    @FXML
-    private ImageView background;
-    @FXML
-    private AnchorPane firstPane;
-
-    private ClientDAO clientDAO = new ClientDAO();
-    private ObservableList<ClientHotel> list = FXCollections.observableArrayList();
+    // Class variables
+    private final ClientDAO clientDAO = new ClientDAO();
+    private final ObservableList<ClientHotel> list = FXCollections.observableArrayList();
     private boolean isValid = true;
     private String messageError = "";
-
+    // Regex Filters
     private final String filterWord = "^[a-zA-Zéèêëàáâîïç\\-]+$";
     private final String filterAddress = "^((\\d)+[a-zA-Zéèêëàáâîïç\\-\\s.']{3,40})$";
     private final String filterCity = "^[a-zA-Zéèêëàáâîïç\\-\\s]+$";
 
+    /**
+     * Controller initialization
+     * Add event listener on table click
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         defineTable();
@@ -57,16 +64,15 @@ public class HotelController implements Initializable {
         });
     }
 
+    /**
+     * Function to show list of client
+     */
     public void defineTable() {
         for (int i = 0; i < this.tableClients.getItems().size(); i++) {
             this.tableClients.getItems().clear();
         }
-        try {
-            List<ClientHotel> dbList = clientDAO.list();
-            this.list.addAll(dbList);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        List<ClientHotel> dbList = clientDAO.list();
+        this.list.addAll(dbList);
 
         tableClients.setEditable(true);
 
@@ -76,10 +82,18 @@ public class HotelController implements Initializable {
         tableClients.setItems(this.list);
     }
 
-    public void btn_return(ActionEvent actionEvent) throws IOException {
+    /**
+     * Back to JDBC Menu
+     * @throws IOException : Exception
+     */
+    public void btn_return() throws IOException {
         App.setRoot("views/JDBC/menu_jdbc");
     }
 
+    /**
+     * Clear inputs values
+     * @param actionEvent : Event click on reset button
+     */
     public void btnReset(ActionEvent actionEvent) {
         Node node = (Node) actionEvent.getSource();
         String action = (String) node.getUserData();
@@ -98,7 +112,11 @@ public class HotelController implements Initializable {
         }
     }
 
-    public void btnAdd(ActionEvent actionEvent) throws SQLException {
+    /**
+     * Function to insert new client on table view
+     * @throws SQLException : Exception
+     */
+    public void btnAdd() throws SQLException {
         this.isValid = true;
 
         ClientHotel client = new ClientHotel();
@@ -122,7 +140,11 @@ public class HotelController implements Initializable {
         }
     }
 
-    public void btnUpdate(ActionEvent actionEvent) throws SQLException {
+    /**
+     * Function to update clients values
+     * @throws SQLException : Exception
+     */
+    public void btnUpdate() throws SQLException {
         this.isValid = true;
 
         ClientHotel client = new ClientHotel();
@@ -147,6 +169,12 @@ public class HotelController implements Initializable {
         }
     }
 
+    /**
+     * Function to test input with regex
+     * @param input : input to test
+     * @param filter : regex filter
+     * @param message : message error
+     */
     public void filterValue(String input, String filter, String message) {
         if (!input.matches(filter)) {
             this.isValid = false;
@@ -154,7 +182,11 @@ public class HotelController implements Initializable {
         }
     }
 
-    public void btnDelete(ActionEvent actionEvent) throws SQLException {
+    /**
+     * Function to delete one client and reservations associated
+     * @throws SQLException : Exception
+     */
+    public void btnDelete() throws SQLException {
         ClientHotel client = new ClientHotel();
         client.setId(Integer.parseInt(this.upId.getText()));
 
@@ -168,6 +200,12 @@ public class HotelController implements Initializable {
         this.upId.setText("");
     }
 
+    /**
+     * Function to display alert box
+     * @param message : Message to display
+     * @param header : Header alert
+     * @param alertType : Alert Type
+     */
     private void alert(String message, String header, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle("Gestion des clients");

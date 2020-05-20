@@ -4,76 +4,126 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to add Crud on client table
+ * @see HotelController
+ * @see ClientHotel
+ */
 public class ClientDAO {
     private final Connection connection;
 
+    /**
+     * Default constructor
+     */
     public ClientDAO() {
         org.firstapp.controllers.JDBC.Connection connectionClass = new org.firstapp.controllers.JDBC.Connection("hotel");
         this.connection = connectionClass.connection();
     }
 
-    public void insert(ClientHotel client) throws SQLException {
-        PreparedStatement statement = this.connection.prepareStatement("INSERT INTO CLIENT(cli_nom, cli_prenom, cli_adresse, cli_ville) VALUES (?,?,?,?)");
-        statement.setString(1, client.getName());
-        statement.setString(2, client.getFirstName());
-        statement.setString(3, client.getAddress());
-        statement.setString(4, client.getCity());
+    /**
+     * Function to insert one ClientHotel
+     * @param client : ClientHotel
+     */
+    public void insert(ClientHotel client) {
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("INSERT INTO CLIENT(cli_nom, cli_prenom, cli_adresse, cli_ville) VALUES (?,?,?,?)");
+            statement.setString(1, client.getName());
+            statement.setString(2, client.getFirstName());
+            statement.setString(3, client.getAddress());
+            statement.setString(4, client.getCity());
 
-        statement.execute();
-        statement.close();
+            statement.execute();
+            statement.close();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void update(ClientHotel client) throws SQLException {
+    /**
+     * Function to update ClientHotel Values
+     * @param client : ClientHotel
+     */
+    public void update(ClientHotel client) {
 
-        PreparedStatement statement = this.connection.prepareStatement("UPDATE CLIENT SET cli_nom = ?, cli_prenom = ?, cli_adresse = ?, cli_ville = ? WHERE cli_id = ?");
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("UPDATE CLIENT SET cli_nom = ?, cli_prenom = ?, cli_adresse = ?, cli_ville = ? WHERE cli_id = ?");
 
-        statement.setString(1, client.getName());
-        statement.setString(2, client.getFirstName());
-        statement.setString(3, client.getAddress());
-        statement.setString(4, client.getCity());
-        statement.setInt(5, client.getId());
+            statement.setString(1, client.getName());
+            statement.setString(2, client.getFirstName());
+            statement.setString(3, client.getAddress());
+            statement.setString(4, client.getCity());
+            statement.setInt(5, client.getId());
 
-        statement.execute();
+            statement.execute();
 
-        statement.close();
+            statement.close();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void delete(ClientHotel client) throws SQLException {
-        PreparedStatement statementParent = this.connection.prepareStatement("DELETE FROM reservation WHERE res_cli_id = ?");
-        statementParent.setInt(1, client.getId());
-        statementParent.execute();
+    /**
+     * Function to delete one ClientHotel
+     * @param client : ClientHotel
+     */
+    public void delete(ClientHotel client) {
+        try {
+            PreparedStatement statementParent = this.connection.prepareStatement("DELETE FROM reservation WHERE res_cli_id = ?");
+            statementParent.setInt(1, client.getId());
+            statementParent.execute();
 
-        statementParent.close();
+            statementParent.close();
 
-        PreparedStatement statement = this.connection.prepareStatement("DELETE FROM CLIENT WHERE cli_id = ?");
-        statement.setInt(1, client.getId());
-        statement.execute();
+            PreparedStatement statement = this.connection.prepareStatement("DELETE FROM CLIENT WHERE cli_id = ?");
+            statement.setInt(1, client.getId());
+            statement.execute();
 
-        statement.close();
+            statement.close();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public ClientHotel find(int id) throws SQLException {
+    /**
+     *
+     * @param id : Client id
+     * @return The client find by id
+     */
+    public ClientHotel find(int id) {
         ClientHotel client = new ClientHotel();
 
-        PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM CLIENT WHERE cli_id = ?");
+        try {
+            PreparedStatement statement = this.connection.prepareStatement("SELECT * FROM CLIENT WHERE cli_id = ?");
 
-        statement.setInt(1, id);
-        ResultSet resultSet = statement.executeQuery();
-        if (resultSet.next()) {
-            client.setId(resultSet.getInt("cli_id"));
-            client.setName(resultSet.getString("cli_nom"));
-            client.setFirstName(resultSet.getString("cli_prenom"));
-            client.setCity(resultSet.getString("cli_ville"));
-            client.setAddress(resultSet.getString("cli_adresse"));
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                client.setId(resultSet.getInt("cli_id"));
+                client.setName(resultSet.getString("cli_nom"));
+                client.setFirstName(resultSet.getString("cli_prenom"));
+                client.setCity(resultSet.getString("cli_ville"));
+                client.setAddress(resultSet.getString("cli_adresse"));
+            }
+
+            resultSet.close();
+            statement.close();
+
+            return client;
         }
-
-        resultSet.close();
-        statement.close();
-
-        return client;
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
-    public List<ClientHotel> list() throws SQLException {
+    /**
+     * Function to get all clients
+     * @return List of client
+     */
+    public List<ClientHotel> list() {
         List<ClientHotel> result = new ArrayList<>();
 
         try {

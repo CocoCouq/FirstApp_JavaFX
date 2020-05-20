@@ -1,5 +1,9 @@
 package org.firstapp.controllers.CRUD;
 
+/**
+ * Class of client
+ * @see ClientDAO
+ */
 public class ClientHotel {
     private int id;
     private String name;
