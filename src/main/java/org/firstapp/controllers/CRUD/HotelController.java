@@ -1,6 +1,5 @@
 package org.firstapp.controllers.CRUD;
 
-import com.google.protobuf.StringValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import org.firstapp.App;
@@ -17,7 +15,6 @@ import org.firstapp.App;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -71,7 +68,7 @@ public class HotelController implements Initializable {
             e.printStackTrace();
         }
 
-        tableClients.setEditable(false);
+        tableClients.setEditable(true);
 
         this.colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.colFirstName.setCellValueFactory((new PropertyValueFactory<>("firstName")));
@@ -101,8 +98,28 @@ public class HotelController implements Initializable {
         }
     }
 
-    public void btnAdd(ActionEvent actionEvent) {
+    public void btnAdd(ActionEvent actionEvent) throws SQLException {
+        this.isValid = true;
 
+        ClientHotel client = new ClientHotel();
+        client.setName(this.addName.getText());
+        client.setFirstName(this.addFirstName.getText());
+        client.setCity(this.addCity.getText());
+        client.setAddress(this.addAddress.getText());
+
+        filterValue(client.getName(), filterWord, "Le nom n'est pas valide");
+        filterValue(client.getFirstName(), filterWord, "Le prénom n'est pas valide");
+        filterValue(client.getAddress(), filterAddress, "L'adresse n'est pas valide");
+        filterValue(client.getCity(), filterCity, "La ville n'est pas valide");
+
+        if (this.isValid) {
+            clientDAO.insert(client);
+            defineTable();
+            alert("Client ajoutés avec succès", "Succès", Alert.AlertType.INFORMATION);
+        }
+        else {
+            alert(this.messageError, "Ajout rejeté", Alert.AlertType.ERROR);
+        }
     }
 
     public void btnUpdate(ActionEvent actionEvent) throws SQLException {
@@ -137,6 +154,20 @@ public class HotelController implements Initializable {
         }
     }
 
+    public void btnDelete(ActionEvent actionEvent) throws SQLException {
+        ClientHotel client = new ClientHotel();
+        client.setId(Integer.parseInt(this.upId.getText()));
+
+        clientDAO.delete(client);
+        defineTable();
+
+        this.upName.setText("");
+        this.upFirstName.setText("");
+        this.upAddress.setText("");
+        this.upCity.setText("");
+        this.upId.setText("");
+    }
+
     private void alert(String message, String header, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle("Gestion des clients");
@@ -144,4 +175,5 @@ public class HotelController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }

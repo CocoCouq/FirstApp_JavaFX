@@ -39,6 +39,12 @@ public class ClientDAO {
     }
 
     public void delete(ClientHotel client) throws SQLException {
+        PreparedStatement statementParent = this.connection.prepareStatement("DELETE FROM reservation WHERE res_cli_id = ?");
+        statementParent.setInt(1, client.getId());
+        statementParent.execute();
+
+        statementParent.close();
+
         PreparedStatement statement = this.connection.prepareStatement("DELETE FROM CLIENT WHERE cli_id = ?");
         statement.setInt(1, client.getId());
         statement.execute();

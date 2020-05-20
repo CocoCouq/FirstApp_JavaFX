@@ -72,7 +72,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="505.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: red; -fx-background-radius: 50; -fx-border-color: lightgrey; -fx-border-radius: 50; -fx-border-width: 2;" text="Supprimer" textFill="WHITE" />
+      <Button layoutX="505.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnDelete" style="-fx-background-color: red; -fx-background-radius: 50; -fx-border-color: lightgrey; -fx-border-radius: 50; -fx-border-width: 2;" text="Supprimer" textFill="WHITE" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="37.0" layoutX="155.0" layoutY="7.0" strokeType="INSIDE" width="291.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
